@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.brand {
+  width: 7.5rem;
+  height: auto;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 1;
+}
+
+#podcast {
+  background: url("../assets/images/growcast-01.png");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 46rem;
+}
+
+.btn-custom {
+  color: #000;
+  border: none;
+  padding: 0.375rem 0.75rem;
+  transition: background-color 0.3s ease, filter 0.3s ease;
+}
+
+.btn-custom:hover {
+  background-color: #e2dcdc;
+}
