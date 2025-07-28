@@ -11,7 +11,7 @@
     <title>Bem-vindo a Growflix</title>
   </head>
   <body class="bg-black">
-    <header>
+    <header id="banner">
       <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container-fluid px-4">
           <a class="navbar-brand" href="./index.html">
@@ -22,6 +22,7 @@
             />
           </a>
           <button
+            id="hamburguerBtn"
             class="navbar-toggler d-block d-lg-none"
             type="button"
             data-bs-toggle="collapse"
@@ -33,7 +34,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul id="navbarLinks" class="navbar-nav d-lg-flex">
               <li class="nav-item">
                 <a
                   class="nav-link active"
@@ -43,46 +44,21 @@
                   >Início</a
                 >
               </li>
-              <li class="nav-item">
-                <a class="nav-link" id="growcast" href="#growcast-area"
-                  >Growcast[episódios]</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="webinar" href="#webinar-area"
-                  >Webinar em Flutter</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="journey" href="#journey-area"
-                  >Jornada UX/UI</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" id="various" href="#various-area"
-                  >Diversos</a
-                >
-              </li>
             </ul>
           </div>
         </div>
       </nav>
-    </header>
-    <main>
-      <section
-        id="podcast"
-        class="container-fluid image-fluid d-flex align-items-end"
-      >
-        <div class="container">
-          <div class="row p-5">
-            <div class="col-12 pb-5">
-              <small class="text-white text-uppercase fw-bold">Podcast</small>
+      <section id="podcast" class="d-flex align-items-end p-5">
+        <div class="container pb-2 ps-5">
+          <div class="row ps-md-2">
+            <div class="col-12">
+              <small class="text-white text-uppercase fw-bolder">Podcast</small>
               <h1 class="display-1 text-white text-uppercase fw-bold mb-3">
                 Growcast
               </h1>
               <button
-                class="btn-custom btn btn-light btn-sm fs-6 fw-bold small"
-                href="./home.html"
+                class="watchBtn btn-custom btn btn-light btn-sm fs-6 fw-bold small"
+                href="https://www.youtube.com/embed/7OWT3lfHYvE"
                 role="button"
               >
                 <img
@@ -95,32 +71,8 @@
           </div>
         </div>
       </section>
-      <section id="growcast">
-        <div class="row">
-          <div class="col-3"></div>
-          <div class="col-3"></div>
-          <div class="col-3"></div>
-        </div>
-      </section>
-      <section id="webinar">
-        <div class="row">
-          <div class="col-3"></div>
-          <div class="col-3"></div>
-        </div>
-      </section>
-      <section id="journey">
-        <div class="row">
-          <div class="col-3"></div>
-          <div class="col-3"></div>
-        </div>
-      </section>
-      <section id="various">
-        <div class="row">
-          <div class="col-3"></div>
-          <div class="col-3"></div>
-        </div>
-      </section>
-    </main>
+    </header>
+    <main></main>
     <div
       class="horizontal-rule container-fluid border-top border-3 border-secondary my-5 mx-auto"
     ></div>
@@ -166,6 +118,7 @@
       </div>
     </footer>
     <script src="./assets/libs/bootstrap-5.3.7/bootstrap.bundle.min.js"></script>
-    <script src=""></script>
+    <script src="./js/movies.js"></script>
+    <script src="./js/script.js" defer></script>
   </body>
 </html>
