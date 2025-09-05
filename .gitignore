@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Jest cache e coverage
+jest-cache/
+coverage/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Build/output (se usar algum)
+dist/
+build/
+
+# Arquivos temporários do editor
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Outros arquivos que não quer versionar
+.env

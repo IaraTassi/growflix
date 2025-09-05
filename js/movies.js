@@ -1,4 +1,4 @@
-const movies = [
+export const movies = [
   {
     img: "https://img.youtube.com/vi/aJ-HZuLcKeA/sddefault.jpg",
     title: "Growcast #00 | Conheça a Growdev",
@@ -68,14 +68,14 @@ const movies = [
     img: "https://img.youtube.com/vi/dfDgs0Ive2Q/sddefault.jpg",
     title:
       "Growcast #9 | Acompanhe com quem realmente entende, tudo sobre o mercado de trabalho no mundo da TI.",
-    link: "https://www.youtube.com/emebed/dfDgs0Ive2Q",
+    link: "https://www.youtube.com/embed/dfDgs0Ive2Q",
     category: { name: "Growcast [Episódios]", id: "growcast" },
     featured: false,
   },
   {
     img: "https://img.youtube.com/vi/WKbLXuP9S-c/sddefault.jpg",
     title: "Webinar - Recriando a interface do Linkedin com Flutter",
-    link: "https://www.youtube.com/emebed/WKbLXuP9S-c",
+    link: "https://www.youtube.com/embed/WKbLXuP9S-c",
     category: { name: "Webinar em Flutter", id: "webinar" },
     featured: false,
   },
@@ -89,14 +89,14 @@ const movies = [
   {
     img: "https://img.youtube.com/vi/8rdJsqUjsGg/sddefault.jpg",
     title: "Webinar - Recriando a interface do iFood com Flutter",
-    link: "https://www.youtube.com/emebed/8rdJsqUjsGg",
+    link: "https://www.youtube.com/embed/8rdJsqUjsGg",
     category: { name: "Webinar em Flutter", id: "webinar" },
     featured: false,
   },
   {
     img: "https://img.youtube.com/vi/C4p_7qBsECw/sddefault.jpg",
     title: "Webinar - Recriando a interface do PicPay com Flutter",
-    link: "https://www.youtube.com/emebed/C4p_7qBsECw",
+    link: "https://www.youtube.com/embed/C4p_7qBsECw",
     category: { name: "Webinar em Flutter", id: "webinar" },
     featured: false,
   },
@@ -134,7 +134,7 @@ const movies = [
     img: "https://img.youtube.com/vi/8sd3wuKTZMA/sddefault.jpg",
     title:
       "Live #2 Jornada UX/UI: O profissional de UX/UI Design no mercado digital - Growdev",
-    link: "https://www.youtube.com/emebed/8sd3wuKTZMA",
+    link: "https://www.youtube.com/embed/8sd3wuKTZMA",
     category: { name: "Jornada UX/UI", id: "journey" },
     featured: false,
   },
@@ -142,21 +142,21 @@ const movies = [
     img: "https://img.youtube.com/vi/-26aqPtgoEY/sddefault.jpg",
     title:
       "Live #1 Jornada UX/UI: O papel do UX/UI Designer no desenvolvimento de um produto digital - Growdev",
-    link: "https://www.youtube.com/emebed/-26aqPtgoEY",
+    link: "https://www.youtube.com/embed/-26aqPtgoEY",
     category: { name: "Jornada UX/UI", id: "journey" },
     featured: false,
   },
   {
     img: "https://img.youtube.com/vi/QsuhYgsSYQo/sddefault.jpg",
     title: "Célula de talentos - Uma solução Growdev",
-    link: "https://www.youtube.com/emebed/QsuhYgsSYQo",
+    link: "https://www.youtube.com/embed/QsuhYgsSYQo",
     category: { name: "Diversos", id: "various" },
     featured: false,
   },
   {
     img: "https://img.youtube.com/vi/ouDn8z3PSqs/sddefault.jpg",
     title: "Como é o dia a dia de um dev? Live Growdev com Marcelo Eltz",
-    link: "https://www.youtube.com/emebed/ouDn8z3PSqs",
+    link: "https://www.youtube.com/embed/ouDn8z3PSqs",
     category: { name: "Diversos", id: "various" },
     featured: false,
   },

@@ -1,4 +1,6 @@
-function getCategoriesFromMovies(movies) {
+import { movies } from "../js/movies.js";
+
+export function getCategoriesFromMovies(movies) {
   return movies.reduce((acc, movie) => {
     const exists = acc.some((cat) => cat.id === movie.category.id);
     if (!exists) {
@@ -8,7 +10,7 @@ function getCategoriesFromMovies(movies) {
   }, []);
 }
 
-function createCategoryNavItem(category) {
+export function createCategoryNavItem(category) {
   const li = document.createElement("li");
   li.classList.add("nav-item");
 
@@ -22,7 +24,7 @@ function createCategoryNavItem(category) {
   return li;
 }
 
-function insertCategoriesInNavbar(categories) {
+export function insertCategoriesInNavbar(categories) {
   const navbarLinks = document.getElementById("navbarLinks");
 
   categories.forEach((category) => {
@@ -31,17 +33,25 @@ function insertCategoriesInNavbar(categories) {
   });
 }
 
-const featuredMovie = movies.find((movie) => movie.featured);
-const staticWatchBtn = document.querySelector(".watchBtn");
+export function setupFeaturedMovieButton(movies) {
+  const featuredMovie = movies.find((movie) => movie.featured);
+  let staticWatchBtn = document.querySelector(".watchBtn");
 
-if (featuredMovie && staticWatchBtn) {
-  staticWatchBtn.addEventListener("click", function (e) {
-    e.preventDefault();
-    createAndShowModal(featuredMovie.link);
-  });
+  if (staticWatchBtn) {
+    const newBtn = staticWatchBtn.cloneNode(true); // sem listeners
+    staticWatchBtn.parentNode.replaceChild(newBtn, staticWatchBtn);
+    staticWatchBtn = newBtn;
+  }
+
+  if (featuredMovie && staticWatchBtn) {
+    staticWatchBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      createAndShowModal(featuredMovie.link);
+    });
+  }
 }
 
-function createCategorySection(category) {
+export function createCategorySection(category) {
   const section = document.createElement("section");
   section.classList.add("category-section", "container");
   section.id = category.id;
@@ -74,7 +84,7 @@ function createCategorySection(category) {
   return section;
 }
 
-function insertSections(categories) {
+export function insertSections(categories) {
   const main = document.querySelector("main");
 
   categories.forEach((category) => {
@@ -83,8 +93,25 @@ function insertSections(categories) {
   });
 }
 
-function renderMoviesInSections(movies) {
+export function renderMoviesInSections(movies) {
+  if (!Array.isArray(movies) || movies.length === 0) return;
+
   movies.forEach((movie) => {
+    if (
+      !movie ||
+      !movie.category?.id ||
+      !movie.title ||
+      !movie.img ||
+      !movie.link
+    ) {
+      return;
+    }
+
+    const row = document.querySelector(
+      `[data-row-category="${movie.category.id}"]`
+    );
+    if (!row) return;
+
     const card = document.createElement("div");
     card.classList.add("card", "card-content");
 
@@ -98,7 +125,7 @@ function renderMoviesInSections(movies) {
     iconLink.href = movie.link;
     iconLink.setAttribute("aria-label", `Assistir ${movie.title}`);
     iconLink.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="white" 
+      <svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" fill="white"
         class="bi bi-play-circle" viewBox="0 0 16 16">
         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
         <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445"/>
@@ -122,50 +149,61 @@ function renderMoviesInSections(movies) {
     card.appendChild(img);
     card.appendChild(footer);
 
-    const section = document.getElementById(movie.category.id);
-    if (section) {
-      const row = document.querySelector(
-        `[data-row-category="${movie.category.id}"]`
-      );
-      const col = document.createElement("div");
-      col.classList.add("col-12", "col-sm-6", "col-md-3", "card-movie");
-      col.appendChild(card);
-      row.appendChild(col);
-    }
+    const col = document.createElement("div");
+    col.classList.add("col-12", "col-sm-6", "col-md-3", "card-movie");
+    col.appendChild(card);
+
+    row.appendChild(col);
   });
 }
 
-function createAndShowModal(movieUrl) {
-  const modalHTML = `
-    <div class="modal fade" id="movieModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content bg-transparent border-bottom-none">
-          <div class="modal-header modal-header-custom border-0">
-            <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close">
-            </button>
-          </div>          
-            <div class="ratio ratio-21x9">
-              <iframe
-                width="560" height="315"
-                id="modalVideo"
-                src="${movieUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>   
+export function createAndShowModal(movieUrl) {
+  const existingModal = document.getElementById("movieModal");
+  if (existingModal) {
+    existingModal.remove();
+  }
+
+  const modalEl = document.createElement("div");
+  modalEl.id = "movieModal";
+  modalEl.className = "modal fade";
+  modalEl.innerHTML = `
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content bg-transparent border-bottom-none">
+        <div class="modal-header modal-header-custom border-0">
+          <button type="button" class="btn-close-custom" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="ratio ratio-21x9">
+          <iframe
+            width="560" height="315"
+            id="modalVideo"
+            src="${movieUrl}"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
         </div>
       </div>
     </div>
   `;
 
-  document.body.insertAdjacentHTML("beforeend", modalHTML);
-  const modalEl = document.getElementById("movieModal");
-  const bsModal = new bootstrap.Modal(modalEl);
-  bsModal.show();
+  document.body.appendChild(modalEl);
 
   modalEl.addEventListener("hidden.bs.modal", function () {
     modalEl.remove();
   });
+
+  if (typeof bootstrap !== "undefined" && bootstrap.Modal) {
+    const bsModal = new bootstrap.Modal(modalEl);
+    bsModal.show();
+  }
 }
 
-const categories = getCategoriesFromMovies(movies);
-insertCategoriesInNavbar(categories);
-insertSections(categories);
-renderMoviesInSections(movies);
+export function initPage() {
+  const categories = getCategoriesFromMovies(movies);
+  insertCategoriesInNavbar(categories);
+  insertSections(categories);
+  renderMoviesInSections(movies);
+  setupFeaturedMovieButton(movies);
+}
+
+document.addEventListener("DOMContentLoaded", initPage);
