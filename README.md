@@ -8,8 +8,17 @@ Desenvolver um site de streaming chamado **Growflix**, inspirado no layout da Ne
 
 👀 Você pode acessar o projeto online por este link:
 
-👉 []()
-_(link estará disponível após o deploy)_
+👉 [Versão no GitHub Pages](https://iaratassi.github.io/growflix/)
+
+## 🖼️ Screenshots
+
+### Página Inicial
+
+![Página Inicial](./assets/screenshots/index.png)
+
+### Home com vídeos
+
+![Home](./assets/screenshots/home.png)
 
 ## 🛠️ Pré-requisitos
 
@@ -74,3 +83,90 @@ Para concluir este desafio, você precisará ter familiaridade com:
     ambos os links:
     a. Link do repositório no Github
     b. Link para o Deploy
+
+---
+
+🧪 Testes
+
+O projeto conta com testes automatizados para garantir a qualidade do código e o correto funcionamento das funções e da manipulação do DOM.
+
+⚙ Tecnologias de teste
+
+Jest – framework de testes em JavaScript
+
+▶ Como executar os testes
+
+1. Instale as dependências:
+   `npm install`
+
+2. Execute os testes:
+   `npm test`
+
+📌 O que está sendo testado
+
+Funções utilitárias – manipulação de arrays de filmes e categorias
+
+DOM dinâmico – renderização de seções e botões interativos
+
+Eventos de clique – abertura do modal de vídeo ao clicar em um card
+
+Os testes estão na pasta:
+
+```
+plaintext
+
+├─ tests/
+│ ├─ unit/
+│ │ ├─ movies.test.js
+│ │ └─ script.test.js
+│ └─ integration/
+│ └─ integration.test.js
+
+```
+
+</details>
+
+✅ Exemplo de saída
+
+```
+
+plaintext
+
+PASS tests/unit/movies.test.js
+
+PASS tests/unit/script.test.js
+
+PASS tests/integration/integration.test.js
+
+-----------|---------|----------|---------|---------|-------------------
+File | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+-----------|---------|----------|---------|---------|-------------------
+All files | 97.22 | 92.59 | 94.44 | 98.07 |
+movies.js | 100 | 100 | 100 | 100 |
+script.js | 97.19 | 92.59 | 94.44 | 98.05 | 142-143
+-----------|---------|----------|---------|---------|-------------------
+
+Test Suites: 3 passed, 3 total
+Tests: 25 passed, 25 total
+Snapshots: 0 total
+Time: 2.794 s
+Ran all test suites.
+
+```
+
+</details>
+
+🚀 Deploy
+
+📌 Após finalizado, inclua aqui o link do projeto no ar:
+👉 [Growflix no ar](https://iaratassi.github.io/growflix/)
+
+---
+
+👩‍💻 Autor(a)
+
+Desenvolvido por Iara Tassi durante o desafio da Growdev.
+
+```
+
+```
