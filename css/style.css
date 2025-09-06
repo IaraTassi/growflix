@@ -4,8 +4,23 @@
   padding: 0;
 }
 
+:root {
+  --primary-color: #e50914;
+  --primary-color-hover: #b80811;
+  --secondary-color: #303030;
+  --text-color-light: #ffffff;
+  --text-color-dark: #000000;
+  --card-bg-color: #000000;
+
+  --brand-width: 7.5rem;
+
+  --banner-image: url("../assets/images/banner-initial.png");
+  --growcast-banner: url("../assets/images/growcast-01.png");
+  --accordion-icon: url("../assets/images/add.svg");
+}
+
 .brand {
-  width: 7.5rem;
+  width: var(--brand-width);
   height: auto;
 }
 
@@ -19,7 +34,7 @@
 }
 
 #hero {
-  background: url("../assets/images/banner-initial.png");
+  background: var(--banner-image);
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -27,24 +42,24 @@
   min-height: 41.625rem;
 }
 
-.btn-custom {
-  background-color: #e50914;
-  color: white;
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
   padding: 1.325rem 2rem;
   border: none;
   transition: background-color 0.3s ease, filter 0.3s ease;
 }
 
-.btn-custom:hover {
-  background-color: #b80811;
+.btn-primary:hover {
+  background-color: var(--primary-color-hover);
 }
 
 .accordion-button {
-  background-color: #303030;
+  background-color: var(--secondary-color);
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: #303030;
+  background-color: var(--secondary-color);
 }
 
 .accordion-item {
@@ -53,13 +68,13 @@
 
 .accordion-button::after {
   content: "";
-  background-color: #303030;
-  background-image: url("../assets/images/add.svg");
+  background-color: var(--secondary-color);
+  background-image: var(--accordion-icon);
   background-repeat: no-repeat;
   transition: transform 0.3s ease;
 }
 
 .accordion-button:not(.collapsed)::after {
-  background-image: url("../assets/images/add.svg");
+  background-image: var(--accordion-icon);
   transform: rotate(180deg);
 }

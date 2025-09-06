@@ -1,5 +1,5 @@
-import * as script from "../js/script.js";
-import { movies } from "../js/movies.js";
+import * as script from "../../js/script.js";
+import { movies } from "../../js/movies.js";
 
 global.bootstrap = {
   Modal: class {

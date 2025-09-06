@@ -1,4 +1,4 @@
-import { movies } from "../js/movies.js";
+import { movies } from "../../js/movies.js";
 
 describe("Conjunto de filmes (movies.js)", () => {
   test("Dado os filmes importados, então deve ser um array com pelo menos um item", () => {

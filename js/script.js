@@ -38,7 +38,7 @@ export function setupFeaturedMovieButton(movies) {
   let staticWatchBtn = document.querySelector(".watchBtn");
 
   if (staticWatchBtn) {
-    const newBtn = staticWatchBtn.cloneNode(true); // sem listeners
+    const newBtn = staticWatchBtn.cloneNode(true);
     staticWatchBtn.parentNode.replaceChild(newBtn, staticWatchBtn);
     staticWatchBtn = newBtn;
   }
@@ -57,7 +57,12 @@ export function createCategorySection(category) {
   section.id = category.id;
 
   const divTitle = document.createElement("div");
-  divTitle.classList.add("div-title", "d-flex", "align-items-center", "gap-1");
+  divTitle.classList.add(
+    "category-header",
+    "d-flex",
+    "align-items-center",
+    "gap-1"
+  );
   section.appendChild(divTitle);
 
   const title = document.createElement("h2");
@@ -77,7 +82,7 @@ export function createCategorySection(category) {
   divTitle.appendChild(svg);
 
   const row = document.createElement("div");
-  row.classList.add("row", "g-4");
+  row.classList.add("row");
   row.dataset.rowCategory = category.id;
   section.appendChild(row);
 
@@ -86,6 +91,7 @@ export function createCategorySection(category) {
 
 export function insertSections(categories) {
   const main = document.querySelector("main");
+  main.classList.add("container-fluid");
 
   categories.forEach((category) => {
     const section = createCategorySection(category);
