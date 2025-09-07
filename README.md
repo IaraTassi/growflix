@@ -112,8 +112,7 @@ Eventos de clique – abertura do modal de vídeo ao clicar em um card
 
 Os testes estão na pasta:
 
-```
-plaintext
+```plaintext
 
 ├─ tests/
 │ ├─ unit/
@@ -128,9 +127,7 @@ plaintext
 
 ✅ Exemplo de saída
 
-```
-
-plaintext
+```plaintext
 
 PASS tests/unit/movies.test.js
 
