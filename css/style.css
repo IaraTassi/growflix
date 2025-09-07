@@ -39,7 +39,15 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  min-height: 41.625rem;
+  min-height: 40rem;
+}
+
+.hero-text {
+  margin-top: 6rem;
+  padding: 3.3rem 0;
+  max-width: 240px;
+  word-break: normal;
+  text-align: center;
 }
 
 .btn-primary {
@@ -48,6 +56,8 @@
   padding: 1.325rem 2rem;
   border: none;
   transition: background-color 0.3s ease, filter 0.3s ease;
+  font-size: 1.5rem;
+  width: 11.675rem;
 }
 
 .btn-primary:hover {
@@ -77,4 +87,16 @@
 .accordion-button:not(.collapsed)::after {
   background-image: var(--accordion-icon);
   transform: rotate(180deg);
+}
+
+@media (min-width: 768px) {
+  .hero-text {
+    max-width: 35rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-text {
+    max-width: 59rem;
+  }
 }
