@@ -155,7 +155,7 @@ Ran all test suites.
 
 🚀 Deploy
 
-📌 Após finalizado, inclua aqui o link do projeto no ar:
+📌 Link do projeto no ar:
 👉 [Growflix no ar](https://iaratassi.github.io/growflix/)
 
 ---
@@ -164,6 +164,4 @@ Ran all test suites.
 
 Desenvolvido por Iara Tassi durante o desafio da Growdev.
 
-```
 
-```
